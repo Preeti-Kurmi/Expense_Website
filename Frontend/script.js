@@ -1,21 +1,9 @@
-// const btn=document.getElementById('btn');
-// btn.addEventListener('click',()=>{
-//     const Name=document.getElementById('Name').value;
-//     const Email=document.getElementById('Email').value;
-//     const Password=document.getElementById('Password').value;
-//     const collect={Name,Email,Password};
-//     console.log(collect);
-//     axios.post('http://localhost/post',collect)
-//     .then((res)=>{
-//         console.log(res.data);
-//     })
-//     .catch(err=>{
-//         console.log(err);
-//     })
+const btn1 = document.querySelector('.btn');
+const warning=document.getElementById('warning');
 
-// })
-const btn = document.getElementById('btn');
-btn.addEventListener('click', () => {
+
+btn1.addEventListener('click', () => {
+    
     const Name = document.getElementById('Name').value;
     const Email = document.getElementById('Email').value;
     const Password = document.getElementById('Password').value;
@@ -26,14 +14,25 @@ btn.addEventListener('click', () => {
         Email: Email,
         Password: Password
     };
+   
 
     console.log(collect);
 
-    axios.post('http://localhost/post', collect)
+    axios.post('http://localhost:80/signup', collect)
         .then((res) => {
             console.log(res.data);
-        })
+           
+       
+        
+    })
         .catch(err => {
-            console.log(err);
+            const warning=document.getElementById('warning');
+            
+            warning.innerHTML=`<p>${err.response.data.error}</p>`;
+            console.log(err.response.data.error);
         });
-});
+    
+
+    })
+
+    
