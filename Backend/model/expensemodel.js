@@ -1,6 +1,6 @@
 const Sequelize=require('sequelize');
 const mysql=require('../util/database');
-const expenses=mysql.define('expenses',
+const addexpenses=mysql.define('addexpense',
 
 {
     id:{
@@ -8,18 +8,18 @@ const expenses=mysql.define('expenses',
     autoIncrement:true,
     primaryKey:true,
     },
-    name:{
-        type:Sequelize.STRING,
-        allowNull:false,
+    amount:{
+        type:Sequelize.INTEGER,
+        
         },
-        email:{
+        description:{
             type:Sequelize.STRING,
-            allowNull:false,
-            unique:true,
+            
+            
             },
-            password:{
+            category:{
                 type:Sequelize.STRING,
-                allowNull:false,
+                
 
             }
     
@@ -28,4 +28,4 @@ const expenses=mysql.define('expenses',
 },
 
 )
-module.exports=expenses;
+module.exports=addexpenses;

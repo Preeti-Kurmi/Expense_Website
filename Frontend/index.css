@@ -7,7 +7,17 @@
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     background-color: #c87bc2;
+    position: relative;
+    bottom: -179px;
 }
+body{
+    background-color: rgb(0 0 0 / 82%);}
+    h1{
+        color: #007bff;
+        font-size: 50px;
+        background-color: aliceblue;
+        align-items: center;
+    }
 
 /* Style form labels */
 label {
