@@ -39,6 +39,14 @@ label {
 select.form-control {
     width: 100%;
 }
+.green-button {
+    background-color: green;
+    color: white; /* Optionally, change the text color to white for better visibility */
+    border: none; /* Optionally, remove the border */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 5px; /* Optionally, add rounded corners */
+}
+
 
 button.btn-primary {
     display: block;

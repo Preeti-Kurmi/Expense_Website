@@ -1,5 +1,6 @@
 
 
+
 const loginbtn =document.getElementById('loginbtn');
 loginbtn.addEventListener('click',()=>{
     const LEmail = document.getElementById('Email1').value;
@@ -11,6 +12,8 @@ loginbtn.addEventListener('click',()=>{
     .then(res=>{
 
         console.log(res.data);
+        console.log(res.token);
+        localStorage.setItem('token',res.data.token);
 
        
         

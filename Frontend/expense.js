@@ -2,7 +2,46 @@
 
 const expenseForm = document.getElementById("expenseForm");
 const expenseList = document.getElementById("expenseList");
+
+const token=localStorage.getItem('token');
 let flag = false;
+const razorpaybtn = document.getElementById("razorpaybtn");
+razorpaybtn.onclick=async function(e){
+    
+    console.log("I am razor");
+    const response=await axios.get('http://localhost:80/premiummembership',{headers:{"Authorization":token}});
+    var options={
+        "key":response.data.key_id,
+        "order_id":response.data.result.id,
+        "handler": async function(response){
+            await axios.post('http://localhost:80/updatepurchase',{
+                order_id:options.order_id,
+                paymentid_id:response.razorpay_payment_id,}
+                ,{headers:{"Authorization":token}
+            })
+            console.log("order_id",order_id);
+            console.log("paymentid",paymentid_id);
+            alert('you are premiumuser')
+
+        }
+        
+    }
+    const razorpay=new Razorpay(options);
+    razorpay.open();
+    e.preventDefault();
+    razorpay.on('payment.failed',async()=>{
+        await axios.post('http://localhost:80/updatepurchase',{
+            order_id:response.data.result.id,
+            paymentid_id:null}
+            ,{headers:{"Authorization":token}}
+    )
+
+    });
+    
+
+
+}
+
 expenseForm.addEventListener('submit', function (event) {
     event.preventDefault();
     const amount = parseFloat(document.getElementById("amount").value);
@@ -25,7 +64,10 @@ expenseForm.addEventListener('submit', function (event) {
     //     selectedExpenseId = null;
     //     document.querySelector("button[type='submit']").textContent = "Add Expense";
     // } else {
-        axios.post('http://localhost:80/add-expense', expenseEntry)
+       
+    //    ,{headers:{"Authorization":token}}
+   
+        axios.post('http://localhost:80/add-expense',expenseEntry,{headers:{"Authorization":token}} )
             .then(res => {
                 console.log(res);
                 fetchdata();
@@ -84,9 +126,11 @@ function displayExpense(data) {
     });
 }
 function fetchdata() {
-    axios.get('http://localhost:80/expenses')
+    axios.get('http://localhost:80/expenses',{headers:{"Authorization":token}})
         .then(res => {
             displayExpense(res.data);
+            console.log(res.data);
+
         })
         .catch(err => {
             console.log(err);
@@ -95,7 +139,7 @@ function fetchdata() {
 function deletedata(id) {
     console.log("Delete", id);
     //displayExpense(id);
-    axios.delete(`http://localhost:80/delete/${id}`)
+    axios.delete(`http://localhost:80/delete/${id}`,{headers:{"Authorization":token}})
         .then(res => {
             console.log(res);
             fetchdata();
@@ -104,6 +148,8 @@ function deletedata(id) {
             console.log(err);
 
         })}
+
+   
 
 
 document.addEventListener('DOMContentLoaded', () => {

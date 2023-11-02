@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Tracker</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container mt-5">
+        <button class="btn" id="razorpaybtn">Activate Premium</button>
         <h1>Expense Tracker</h1>
         <form id="expenseForm">
             <div class="form-group">
@@ -31,12 +32,13 @@
             <button type="submit" class="btn btn-primary">Add Expense</button>
         </form>
         <div id="expenseList" class="mt-4">
-            <!-- Expense entries will be displayed here -->
+            Expense entries will be displayed here
         </div>
     </div>
     <!-- Your HTML -->
     <!-- ... (no changes to HTML structure) -->
-
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
 
-    <script src="expense.js"></script>
+    <script src="expense.js"></script> 
+   
