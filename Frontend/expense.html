@@ -6,39 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Tracker</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="leader.css">
+
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="btngroup">
         <button class="btn" id="razorpaybtn">Activate Premium</button>
+        <div id="message"></div>
+        <button id="leaderboardBtn" class="btn">Leaderboard</button>
+    </div>
+    <div id="leaderboardContainer" class="leaderboard" style="display: none;">
+        <h2>Leaderboard</h2>
+        <table id="leaderboardTable1" class="leaderboardTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Total Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Leaderboard data will be inserted here dynamically -->
+            </tbody>
+        </table>
+        <button id="exitBtn" class="btn">Exit Leaderboard</button>
+    </div>
+
+
+    <div class="container mt-5">
         <h1>Expense Tracker</h1>
         <form id="expenseForm">
-            <div class="form-group">
-                <label for="amount">Expense Amount:</label>
-                <input type="number" class="form-control" id="amount" required>
-            </div>
-            <div class="form-group">
-                <label for="description">Description:</label>
-                <input type="text" class="form-control" id="description" required>
-            </div>
-            <div class="form-group">
-                <label for="category">Category:</label>
-                <select class="form-control" id="category">
-                    <option value="fuel">Fuel</option>
-                    <option value="grocery">Grocery</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Add Expense</button>
-        </form>
+            <div class="headtext">
+
+            <label for="amount">Expense Amount:</label>
+            <input type="number" class="form-control" id="amount" required>
+
+
+            <label for="description">Description:</label>
+            <input type="text" class="form-control" id="description" required>
+
+
+            <label for="category">Category:</label>
+            <select class="form-control" id="category">
+                <option value="fuel">Fuel</option>
+                <option value="grocery">Grocery</option>
+                <option value="other">Other</option>
+            </select>
+
+            <button type="submit" class="btn1">Add Expense</button>
+        </form></div>
         <div id="expenseList" class="mt-4">
             Expense entries will be displayed here
         </div>
     </div>
+
     <!-- Your HTML -->
     <!-- ... (no changes to HTML structure) -->
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
 
-    <script src="expense.js"></script> 
-   
+    <script src="expense.js"></script>
+    <script src="LeaderBoard.js"></script>

@@ -6,6 +6,7 @@ const expenseList = document.getElementById("expenseList");
 const token=localStorage.getItem('token');
 let flag = false;
 const razorpaybtn = document.getElementById("razorpaybtn");
+
 razorpaybtn.onclick=async function(e){
     
     console.log("I am razor");
@@ -19,9 +20,12 @@ razorpaybtn.onclick=async function(e){
                 paymentid_id:response.razorpay_payment_id,}
                 ,{headers:{"Authorization":token}
             })
-            console.log("order_id",order_id);
-            console.log("paymentid",paymentid_id);
+            
             alert('you are premiumuser')
+            razorpaybtn.style.visibility="hidden";
+            document.getElementById('message').innerHTML="You are a premium user";
+            
+
 
         }
         
@@ -98,11 +102,11 @@ function displayExpense(data) {
         expenselist.innerHTML = `
             <div class="card mb-2">
                 <div class="card-body">
-                    <h4 class="card-title">${data.description}</h4>
-                    <p>${data.category}</p>
-                    <p>${data.amount}</p>
-                    <button class="btn btn-danger delete-button" id="${data.id}">Delete Expense</button>
-                    <button class="btn btn-danger edit-button" id="${data.id}">Edit</button>
+                    <p class="card-title">Expense Name:${data.description}</p4>
+                    <p>Expense Category:${data.category}</p>
+                    <p>Rs.${data.amount}</p>
+                    <button class="btn2 btn-danger delete-button" id="${data.id}">Delete Expense</button>
+                   
                 </div>
             </div>`;
 
@@ -114,6 +118,7 @@ function displayExpense(data) {
         });
 
         // const editButton = expenselist.querySelector(".edit-button");
+        // // <button class="btn btn-danger edit-button" id="${data.id}">Edit</button>
         // editButton.addEventListener("click", function () {            
         //     const card = this.closest(".card");
         //     card.remove();

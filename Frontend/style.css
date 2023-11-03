@@ -1,68 +1,63 @@
-/* styles.css */
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
 h1 {
-    text-align: center;
-    color: #8b0f0f;
-    background-color: #8783d6;
-    height: 100px;
-    margin: 77px;
-    padding: 94px;
-    font-size: 55px;
-    border: solid 47px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    font-weight: bold;
-    color: #555;
-}
-
-input[type="number"],
-input[type="text"],
-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button.btn-primary {
-    display: block;
-    margin: 0 auto;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    color: #000;
     cursor: pointer;
+    background-color: #f4f409;
+    height: 85px;
+    position: relative;
+    bottom: 106px;
+    width: 105%;
+    right: 19px;
+    top: -59px;
+    text-align: center;
+    padding: 38px;
+    font-size: 53px;
+}
+body{
+    background-color: #f4f409;
+
 }
 
-#expenseList {
-    margin-top: 20px;
+label{
+    color:red;
+    font-size: 30px;
+    font-style: oblique;
 }
-.btn {
-    background-color: green;
-    color: white; /* Optionally, change the text color to white for better visibility */
-    border: none; /* Optionally, remove the border */
-    padding: 10px 20px; /* Adjust padding as needed */
-    border-radius: 5px; /* Optionally, add rounded corners */
-}
+.btn1{
+    background-color: #10110f;
+    color: red;
+    padding: 11px 20px;
+    margin: 5px;
+    border-radius: 10px;
 
-/* Add additional styles for the expense list entries if needed */
+}
+.card{
+    color:red;
+    line-height: 13px;
+}
+.btn2{
+    position: relative;
+    bottom: 20px;
+    color: red;
+    padding: 11px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: #000;
+    font-weight: 100px;
+
+}
+input{
+    width: 300px;
+    height: 30px;
+}
+.headtext{
+    background-color: rgb(44, 198, 218);
+    height: 119px;
+    
+    width: 100%;
+}
+.mt-4{
+    color: #000000;
+    font-size: 25px;
+}

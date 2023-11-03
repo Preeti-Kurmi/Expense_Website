@@ -12,11 +12,8 @@
 }
 body{
     background-color: rgb(0 0 0 / 82%);}
-    h1{
-        color: #007bff;
-        font-size: 50px;
-        background-color: aliceblue;
-        align-items: center;
+   .container  h1{
+       color: #000;
     }
 
 /* Style form labels */

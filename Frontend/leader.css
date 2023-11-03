@@ -1,0 +1,57 @@
+.container {
+    text-align: left;
+}
+
+.btn {
+    background-color: #50b22a;
+    color: #fff;
+    border: none;
+    padding: 19px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 20px;
+    position: relative;
+    bottom: 12px;
+
+}
+
+.leaderboard {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.leaderboard h2 {
+    color: #007BFF;
+}
+
+.leaderboardTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+.btngroup{
+    display: flex;
+    background-color: black;
+}
+.leaderboardTable th, .leaderboardTable td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.leaderboardTable th {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.leaderboardTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.leaderboardTable tr:hover {
+    background-color: #ddd;
+}
