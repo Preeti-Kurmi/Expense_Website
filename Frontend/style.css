@@ -38,7 +38,7 @@ label{
 }
 .btn2{
     position: relative;
-    bottom: 20px;
+    bottom: 1px;
     color: red;
     padding: 11px 20px;
     margin: 5px;
@@ -46,6 +46,12 @@ label{
     background-color: #000;
     font-weight: 100px;
 
+}
+#message{
+    color: #f4f409;
+    position: relative;
+    left: 6px;
+    bottom: -24px;
 }
 input{
     width: 300px;

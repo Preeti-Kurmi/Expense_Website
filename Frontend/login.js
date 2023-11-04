@@ -13,7 +13,9 @@ loginbtn.addEventListener('click',()=>{
 
         console.log(res.data);
         console.log(res.token);
+        
         localStorage.setItem('token',res.data.token);
+        localStorage.setItem('isPremium',res.data.isPerimium);
 
        
         

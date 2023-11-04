@@ -1,9 +1,16 @@
 
+
+
 const leaderboardBtn = document.getElementById("leaderboardBtn");
 const leaderboardContainer = document.getElementById("leaderboardContainer");
 const leaderboardTable = document.getElementById("leaderboardTable1");
 const exitBtn = document.getElementById("exitBtn");
+const isPremium=localStorage.getItem("isPremium");
 
+    // razorpaybtn.style.visibility="hidden";
+    if(isPremium=="null"){
+leaderboardBtn.style.display="none";
+    }
 leaderboardBtn.addEventListener("click", async () => {
     const leaderboardpost = await axios.get('http://localhost:80/premiummembership/leaderboard', {
         headers: { "Authorization": token }

@@ -2,11 +2,13 @@
 
 const expenseForm = document.getElementById("expenseForm");
 const expenseList = document.getElementById("expenseList");
-
+const isPremium1=localStorage.getItem("isPremium");
 const token=localStorage.getItem('token');
 let flag = false;
 const razorpaybtn = document.getElementById("razorpaybtn");
 
+
+//     razorpaybtn.style.display="block";
 razorpaybtn.onclick=async function(e){
     
     console.log("I am razor");
@@ -22,14 +24,18 @@ razorpaybtn.onclick=async function(e){
             })
             
             alert('you are premiumuser')
-            razorpaybtn.style.visibility="hidden";
-            document.getElementById('message').innerHTML="You are a premium user";
+              
+          
+
             
 
 
         }
         
     }
+    
+           
+    
     const razorpay=new Razorpay(options);
     razorpay.open();
     e.preventDefault();
@@ -45,7 +51,7 @@ razorpaybtn.onclick=async function(e){
 
 
 }
-
+    
 expenseForm.addEventListener('submit', function (event) {
     event.preventDefault();
     const amount = parseFloat(document.getElementById("amount").value);
@@ -102,9 +108,9 @@ function displayExpense(data) {
         expenselist.innerHTML = `
             <div class="card mb-2">
                 <div class="card-body">
-                    <p class="card-title">Expense Name:${data.description}</p4>
-                    <p>Expense Category:${data.category}</p>
-                    <p>Rs.${data.amount}</p>
+                    <span class="card-title">Expense Name:${data.description}</span>
+                    <span>Expense Category:${data.category}</span>
+                    <span>Rs.${data.amount}</span>
                     <button class="btn2 btn-danger delete-button" id="${data.id}">Delete Expense</button>
                    
                 </div>
@@ -159,6 +165,15 @@ function deletedata(id) {
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchdata();
+    // if(isPremium1){
+    
+    
+    //     document.getElementById('message').innerHTML="you are preimus user";
+    //     // razorpaybtn.style.display="none";
+    // }
+    // else{
+    //     razorpaybtn.style.display="block";
+    // }
 })
 
 
