@@ -4,8 +4,18 @@ const expenseForm = document.getElementById("expenseForm");
 const expenseList = document.getElementById("expenseList");
 const isPremium1=localStorage.getItem("isPremium");
 const token=localStorage.getItem('token');
+const message=document.getElementById("message");
 let flag = false;
+
 const razorpaybtn = document.getElementById("razorpaybtn");
+if(isPremium1!=null && isPremium1==true){
+    razorpaybtn.style.display="none";
+    
+
+
+}
+console.log(isPremium1!=null && isPremium1==true);
+
 
 
 //     razorpaybtn.style.display="block";
@@ -163,17 +173,14 @@ function deletedata(id) {
    
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    fetchdata();
-    // if(isPremium1){
-    
-    
-    //     document.getElementById('message').innerHTML="you are preimus user";
-    //     // razorpaybtn.style.display="none";
-    // }
-    // else{
-    //     razorpaybtn.style.display="block";
-    // }
-})
-
-
+        document.addEventListener('DOMContentLoaded', () => {
+        //     if (isPremium1) {
+        //         document.getElementById('message').innerHTML = "You are a premium user";
+        //         // Hide the "Activate Premium" button if the user is already a premium user
+        //         razorpaybtn.style.display = "none";
+        //     } else if(isPremium1=="null" && isPremium1==false){
+                
+        //         razorpaybtn.style.display = "block";
+        //     }
+            fetchdata();
+        });
