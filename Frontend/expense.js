@@ -7,13 +7,20 @@ const token=localStorage.getItem('token');
 const message=document.getElementById("message");
 let flag = false;
 
+
+function showpremiumm() {
+    const rbtn=  document.getElementById('razorpaybtn');
+      document.getElementById('message').innerHTML = "You are a premium user";
+      // Hide the "Activate Premium" button if the user is already a premium user
+      rbtn.style.display = "none";
+  } 
 const razorpaybtn = document.getElementById("razorpaybtn");
-if(isPremium1!=null && isPremium1==true){
-    razorpaybtn.style.display="none";
+
+    
     
 
 
-}
+
 console.log(isPremium1!=null && isPremium1==true);
 
 
@@ -34,6 +41,8 @@ razorpaybtn.onclick=async function(e){
             })
             
             alert('you are premiumuser')
+            if(isPremium1){
+            showpremiumm();}
               
           
 
@@ -61,6 +70,7 @@ razorpaybtn.onclick=async function(e){
 
 
 }
+
     
 expenseForm.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -169,18 +179,32 @@ function deletedata(id) {
             console.log(err);
 
         })}
+        async function download(){
+
+            axios.get('http://localhost:80/downloads',{headers:{"Authorization":token}})
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+                if(res.status=200){
+                    const a =document.createElement('a');
+                    a.href=res.data;
+                    a.click();
+                }
+              
+            })
+            .catch(err => {
+                console.log(err);
+    
+            })
+        }
+        
 
    
 
 
         document.addEventListener('DOMContentLoaded', () => {
-        //     if (isPremium1) {
-        //         document.getElementById('message').innerHTML = "You are a premium user";
-        //         // Hide the "Activate Premium" button if the user is already a premium user
-        //         razorpaybtn.style.display = "none";
-        //     } else if(isPremium1=="null" && isPremium1==false){
-                
-        //         razorpaybtn.style.display = "block";
-        //     }
+        //     if(isPremium1){
+        //    showpremiumm();}
+
             fetchdata();
         });
