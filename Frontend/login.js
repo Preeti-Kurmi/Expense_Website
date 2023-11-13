@@ -11,7 +11,7 @@ loginbtn.addEventListener('click',()=>{
     axios.post('http://localhost:80/login',c)
     .then(res=>{
 
-        console.log(res.data);
+        console.log("ispremium",res.data.isPerimium);
         console.log(res.token);
         
         localStorage.setItem('token',res.data.token);
