@@ -3,6 +3,8 @@ const expenseList = document.getElementById("expenseList");
 const isPremium1=localStorage.getItem("isPremium");
 const token=localStorage.getItem('token');
 const message=document.getElementById("message");
+const expensesPerPage=document.getElementById("expensesPerPage");
+
 let flag = false;
 console.log("isperemium",isPremium1);
 
@@ -77,10 +79,10 @@ function displayExpense(data) {
         expenselist.innerHTML = `
             <div class="card mb-2">
                 <div class="card-body">
-                    <span class="card-title">Expense Name:${data.description}</span>
-                    <span>Expense Category:${data.category}</span>
-                    <span>Rs.${data.amount}</span>
-                    <button class="btn2 btn-danger delete-button" id="${data.id}">Delete Expense</button>
+                    <span class="card-title">Expense Name:&nbsp;${data.description}</span>&nbsp;&nbsp;&nbsp;
+                    <span>Expense Category:&nbsp;${data.category}</span>&nbsp;&nbsp;&nbsp;
+                    <span>&nbsp;Rs.${data.amount}</span>&nbsp;&nbsp;&nbsp;
+                    <button class="btn2 btn-danger delete-button" id="${data.id}">Delete</button>
                    
                 </div>
             </div>`;
@@ -95,9 +97,11 @@ function displayExpense(data) {
     });
 }
 function fetchdata(page) {
-    limit=5;
+    //limit=5;
+    const limit=getexpensepages();
+    //console.log("given limit",limit)
     
-    axios.get(`http://localhost:80/expenses?page=${page}&pageSize=${limit}`,{headers:{"Authorization":token}})
+    axios.get(`http://localhost:80/expenses?page=${page}&limit=${limit}`,{headers:{"Authorization":token}})
         .then(res => {
             
             const a=res.data.expense;
@@ -154,6 +158,17 @@ function deletedata(id) {
           
 
         }
+        function expensepages(){
+            const expenseperpagevalue=expensesPerPage.value;
+            localStorage.setItem("pagesize",expenseperpagevalue);
+            fetchdata();
+
+        }
+        function getexpensepages(){
+            const pagestoredvalue=localStorage.getItem("pagesize");
+            return pagestoredvalue || "5";
+        }
+
             
 
 
